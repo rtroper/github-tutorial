@@ -1,3 +1,9 @@
+# Contents
+
+* [Install Git and Clone the Repo](#install-git-and-clone-the-repo)
+* [Commit a File to the Local Repo](#commit-a-file-to-the-local-repo)
+* [Push Local Changes to the GitHub Repo](#push-local-changes-to-the-github-repo)
+
 # github-tutorial
 This is a basic tutorial showing how to use GitHub. The tutorial assumes you are using Windows. If you wish to run the Python examples, you will need to have a Python distribution installed on your machine. You can install from [python.org](https://www.python.org/downloads/) or one of the common Python distributions (e.g. [Miniconda or Anaconda](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/windows.html)).
 
@@ -6,7 +12,7 @@ Start by installing Git for Windows from the following location: [https://git-sc
 
 `git clone https://github.com/rtroper/github-tutorial`
 
-This will clone the repo into a folder named `github-tutorial`. If you want to clone the contents of the repo directly into the folder you have created, run the command above with a space and `.` at the end:
+This will clone the repo into a subfolder named `github-tutorial`. If you want to clone the contents of the repo directly into a subfolder you have created, `cd` into that subfolder and run the command above with a space and `.` at the end:
 
 `git clone https://github.com/rtroper/github-tutorial .`
 
@@ -30,7 +36,7 @@ and
 
 `git add images/git-status.png`
 
-Now, we see that these two files are staged, meaning that they will be committed to the local repo when we run `git commit` (any new or modified files that are unstaged will *not* be committed to the repo).
+Now, running `git status` again, we see that these two files are staged, meaning that they will be committed to the local repo when we run `git commit` (any new or modified files that are unstaged will *not* be committed to the repo).
 
 ![git add](/images/git-add.png)
 
@@ -38,10 +44,11 @@ As a final step, now, let's commit these two new files to the local repo by runn
 
 ![enter commit message](/images/enter-commit-message.png)
 
-Type your commit message *above* the lines that start with `#` (all lines beginning with `#` will be ignored). On the first line, provide a succinct one-line description or title for the commit. Press `Enter` and provide a summary of changes underneath the title line. You should follow [commit message guidelines](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines), which include the following:
+Type your commit message *above* the lines that start with `#` (all lines beginning with `#` will be ignored). On the first line, provide a succinct one-line description or title for the commit. Press `Enter` twice (to include an empty line) and provide a summary of changes underneath the title line. You should follow [commit message guidelines](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines), which include the following:
 * Limit the title to about 50 characters or less
 * Limit subsequent lines to about 72 characters or less (adding carriage returns as needed)
-Once you save and close the commit message, you should see a message in the Git Bash console indicating that the files were successfully committed.
+
+Once you save and close the commit message, the output in the Git Bash console should indicate that the files were successfully committed.
 
 ![git commit success](/images/git-commit-success.png)
 
@@ -49,11 +56,13 @@ Run `git status` and you will see that there is one more step to update the orig
 
 ![git status after commit](/images/git-status-after-commit.png)
 
+## Push Local Changes to the GitHub Repo
+
 As noted previously, a commit only updates our local repo (on our machine). These local changes then need to be pushed to the origin repo by running `git push`. After a successful push, the result of running `git status` again indicates that our local repo is up to date with the origin repo in GitHub.
 
 ![git push](/images/git-push.png)
 
-If we now go to the repo in GitHub, we can see the new images folder that we just pushed.
+If we now go to the repo in GitHub, we can see the new `images` folder that we just pushed. Click on the `images` folder link to see the image files.
 
 ![repo updated with images](/images/repo-updated-with-images.png)
 
@@ -61,5 +70,46 @@ If we click on the 'commits' link (in the upper-left of the screenshot above) we
 
 ![commits list](/images/commits-list.png)
 
-Clicking on the link for our latest change, we see the full commit message and a listing of file changes.
+Clicking on the `Add tutorial images` link for our latest changes, we see the full commit message and a listing of file changes.
+
+## Open a Pull Request
+
+When working on code development within a collaborative team environment, it is preferrable to make changes to the GitHub repo by means of pull requests. This involves the following steps:
+
+* Pull the latest changes from the `origin/master` branch (on GitHub) to your local `master` branch
+* Create a local development branch off of your local `master` branch
+* Make one or more commits on your local development branch
+* Push your development branch to the `origin` repo (on GitHub)
+* Open a pull request in GitHub on your development branch
+
+This workflow provides a way to make changes to a GitHub repo that:
+
+* Allows collaborators to make changes to the same repo without pushing changes over the top of others' changes
+* Allows collaborators to review each other's changes before merging the changes into the main branch (e.g. `master`)
+
+The steps listed above are described in detail in the following sections.
+
+### Pull Changes from GitHub to your Local Repo
+
+In a team development environment, you will need to regularly check that your local repo is up-to-date with the `origin` repo on GitHub. To make sure that you have the latest changes that have been pushed by other team members, first run `git fetch` and then `git status`.
+
+![git fetch](/images/git-fetch.png)
+
+The `git fetch` will 'fetch' the latest changes from the `origin` repo on GitHub without actually merging those changes into your local repo. If there are changes in the `origin` repo that are not in your local repo, the output of `git status` will indicate that your branch is behind the `origin` repo. To pull these changes into your local repo, run `git pull`.
+
+![git pull](/images/git-pull.png)
+
+The resulting output in the Git Bash console will list new files or file modifications that have been merged from the `origin` repo into your local repo. In the example above, there have been changes made to the README.md file that were not in your local copy of that file.
+
+### Create a Local Development Branch
+
+To be able to open a pull request for others to review your proposed changes, you will need to work on a separate development branch from `master` (which is the default branch for any repo). To create a development branch named, say, `add-python-example` off of `master` and immediately check out (i.e. switch to) that branch, run the following:
+
+`git checkout -b add-python-example`
+
+The output in the Git Bash console should indicate that you have switched to the new branch. To the right of your folder path, you should see `(add-python-example)` indicating you are currently on the `add-python-example` branch. To see a list of local branches, use `git branch` (use the `-a` flag to see a list of all local *and* remote branches). Note that the branch currently checked out (`add-python-example`, in the current example) is indicated by an asterisk.
+
+![git branch](/images/git-branch.png)
+
+Now, every time you commit changes, they will be committed to this local development branch.
 
