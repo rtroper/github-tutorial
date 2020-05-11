@@ -3,6 +3,11 @@
 * [Install Git and Clone the Repo](#install-git-and-clone-the-repo)
 * [Commit a File to the Local Repo](#commit-a-file-to-the-local-repo)
 * [Push Local Changes to the GitHub Repo](#push-local-changes-to-the-github-repo)
+* [Open a Pull Request](#open-a-pull-request)
+  * [Pull Changes from GitHub to your Local Repo](#pull-changes-from-github-to-your-local-repo)
+  * [Create a Local Development Branch](#create-a-local-development-branch)
+  * [Push Your Development Branch to GitHub](#push-your-development-branch-to-github)
+  * [Open a Pull Request in GitHub](#open-a-pull-request-in-github)
 
 # github-tutorial
 This is a basic tutorial showing how to use GitHub. The tutorial assumes you are using Windows. If you wish to run the Python examples, you will need to have a Python distribution installed on your machine. You can install from [python.org](https://www.python.org/downloads/) or one of the common Python distributions (e.g. [Miniconda or Anaconda](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/windows.html)).
@@ -112,4 +117,30 @@ The output in the Git Bash console should indicate that you have switched to the
 ![git branch](/images/git-branch.png)
 
 Now, every time you commit changes, they will be committed to this local development branch.
+
+### Push Your Development Branch to GitHub
+
+Once you have made one or more commits on your development branch and you feel that the feature you are working on is complete, it is time to push your branch to GitHub where you can open a pull request. To push our branch (`add-python-example`) to the `origin` repo, fun the following command:
+
+`git push -u origin add-python-example`
+
+The output below indicates that we have successfully pushed our development branch to the `origin` repo in GitHub. It also provides some instructions for opening a pull request, which will be described in the next section.
+
+![git push branch](/images/git-push-branch.png)
+
+### Open a Pull Request in GitHub
+
+Once we have pushed a new development branch to the `origin` repo in GitHub, we can open a pull request for others to review before our changes are merged into the `master` branch. Start by visiting the repo GitHub page and selecting our new branch from the 'Branch' drop-list shown below.
+
+![select branch in github](/images/select-branch-in-github.png)
+
+Once the new branch is selected, click the '*New pull request*' button to the right of the 'Branch' button. Make sure there is a descriptive title and description for the pull request and then click the '*Create pull request*' button to the lower right.
+
+![create pull request](/images/create-pull-request.png)
+
+The newly-created pull request can be viewed by returning to the main GitHub repo page and clicking on the '*Pull requests*' tab toward the top. 
+
+![view pull requests](/images/view-pull-requests.png)
+
+To see details about the pull request, click on the pull request title (*Add simple calculator feature*, in this case).
 
