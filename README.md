@@ -14,7 +14,7 @@
 This is a basic tutorial showing how to use GitHub. The tutorial assumes you are using Windows. If you wish to run the Python examples, you will need to have a Python distribution installed on your machine. You can install from [python.org](https://www.python.org/downloads/) or one of the common Python distributions (e.g. [Miniconda or Anaconda](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/windows.html)).
 
 ## Install Git and Clone the Repo
-Start by installing Git for Windows from the following location: [https://git-scm.com/downloads](https://git-scm.com/downloads). Once installed, launch Git Bash, `cd` into a folder location of your choice (e.g. `/c/Dev/tutorials`) and clone the tutorial repo:
+Start by installing Git for Windows from the following location: [https://git-scm.com/downloads](https://git-scm.com/downloads). During installation, be sure to select your code editor of choice that you wish to use for commit messages. Once Git is installed, launch Git Bash, `cd` into a folder location of your choice (e.g. `/c/Dev/tutorials`) and clone the tutorial repo:
 
 `git clone https://github.com/rtroper/github-tutorial`
 
@@ -88,20 +88,15 @@ When working on code development within a collaborative team environment, it is 
 * Push your development branch to the `origin` repo (on GitHub)
 * Open a pull request in GitHub on your development branch
 
-This workflow provides a way to make changes to a GitHub repo that:
-
-* Allows collaborators to make changes to the same repo without pushing changes over the top of others' changes
-* Allows collaborators to review each other's changes before merging the changes into the main branch (e.g. `master`)
-
-The steps listed above are described in detail in the following sections.
+This workflow allows collaborators to review each other's changes before merging the changes into the main branch (e.g. `master`). The steps listed above are described in detail in the following sections.
 
 ### Pull Changes from GitHub to your Local Repo
 
-In a team development environment, you will need to regularly check that your local repo is up-to-date with the `origin` repo on GitHub. To make sure that you have the latest changes that have been pushed by other team members, first run `git fetch` and then `git status`.
+In a team development environment, you will need to regularly check that your local repo is up-to-date with the `origin` repo on GitHub. To make sure you have the latest changes that have been pushed by other team members, first run `git fetch` and then `git status`.
 
 ![git fetch](/images/git-fetch.png)
 
-The `git fetch` will 'fetch' the latest changes from the `origin` repo on GitHub without actually merging those changes into your local repo. If there are changes in the `origin` repo that are not in your local repo, the output of `git status` will indicate that your branch is behind the `origin` repo. To pull these changes into your local repo, run `git pull`.
+The `git fetch` command will 'fetch' the latest changes from the `origin` repo on GitHub without actually merging those changes into your local repo. If there are changes in the `origin` repo that are not in your local repo, the output of `git status` will indicate that your branch is behind the `origin` repo. To pull these changes into your local repo, run `git pull`.
 
 ![git pull](/images/git-pull.png)
 
@@ -109,7 +104,7 @@ The resulting output in the Git Bash console will list new files or file modific
 
 ### Create a Local Development Branch
 
-To be able to open a pull request for others to review your proposed changes, you will need to work on a separate development branch from `master` (which is the default branch for any repo). To create a development branch named, say, `add-python-example` off of `master` and immediately check out (i.e. switch to) that branch, run the following:
+To open a pull request for others to review your proposed changes, you should work on a separate development branch from `master` (which is the default branch for most repos). To create a development branch named, say, `add-python-example` off of `master` and immediately check out (i.e. switch to) that branch, run the following:
 
 `git checkout -b add-python-example`
 
@@ -121,7 +116,7 @@ Now, every time you commit changes, they will be committed to this local develop
 
 ### Push Your Development Branch to GitHub
 
-Once you have made one or more commits on your development branch and you feel that the feature you are working on is complete, it is time to push your branch to GitHub where you can open a pull request. To push our branch (`add-python-example`) to the `origin` repo, fun the following command:
+Once you have made one or more commits on your development branch and you feel that the feature you are working on is complete, it is time to push your branch to GitHub where you can open a pull request. To push our branch (`add-python-example`) to the `origin` repo, run the following command:
 
 `git push -u origin add-python-example`
 
@@ -135,7 +130,7 @@ Once we have pushed a new development branch to the `origin` repo in GitHub, we 
 
 ![select branch in github](/images/select-branch-in-github.png)
 
-Once the new branch is selected, click the '*New pull request*' button to the right of the 'Branch' button. Make sure there is a descriptive title and description for the pull request and then click the '*Create pull request*' button to the lower right.
+Once the new branch is selected, click the '*New pull request*' button to the right of the 'Branch' button. Make sure there is a descriptive title and a more detailed description for the pull request and then click the '*Create pull request*' button to the lower right.
 
 ![create pull request](/images/create-pull-request.png)
 
