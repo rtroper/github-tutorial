@@ -8,6 +8,7 @@
   * [Create a Local Development Branch](#create-a-local-development-branch)
   * [Push Your Development Branch to GitHub](#push-your-development-branch-to-github)
   * [Open a Pull Request in GitHub](#open-a-pull-request-in-github)
+* [Merge a Pull Request](#merge-a-pull-request)
 
 # github-tutorial
 This is a basic tutorial showing how to use GitHub. The tutorial assumes you are using Windows. If you wish to run the Python examples, you will need to have a Python distribution installed on your machine. You can install from [python.org](https://www.python.org/downloads/) or one of the common Python distributions (e.g. [Miniconda or Anaconda](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/windows.html)).
@@ -143,4 +144,22 @@ The newly-created pull request can be viewed by returning to the main GitHub rep
 ![view pull requests](/images/view-pull-requests.png)
 
 To see details about the pull request, click on the pull request title (*Add simple calculator feature*, in this case).
+
+## Merge a Pull Request
+
+After a pull request has been submitted, it should be reviewed by one or more other individuals. If you are a reviewer, click on the '*Pull requests*' tab at the top of the GitHub repo main page, find the desired pull request and click on its title to open up details about the pull request.
+
+![view a pull request](/images/view-a-pull-request.png)
+
+To review commits for the pull request, click the '*Commits*' tab. Click on the title of any commit to see what files were changed (or added) and the exact changes to those files.
+
+![view file changes](/images/view-file-changes.png)
+
+Once changes have been reviewed and found acceptable, someone other than the creator of the pull request should merge it into the master branch. To do this, the reviewer should go to the main details page for the pull request and click the '*Merge pull request*' button (or click the down arrow immediately to the right of the button to select another merge option).
+
+![merge pull request](/images/merge-pull-request.png)
+
+Type a commit message or accept the default message and click '*Confirm merge*'.
+
+![confirm merge](/images/confirm-merge.png)
 
